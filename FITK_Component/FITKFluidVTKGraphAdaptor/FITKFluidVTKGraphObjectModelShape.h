@@ -1,0 +1,62 @@
+﻿/*****************************************************************//**
+ * @file    FITKFluidVTKGraphObjectModelShape.h
+ * @brief   Shape graph object 3D model for VTK graph widget.
+
+ * @author  ChengHaotian (yeguangbaozi@foxmail.com)
+ * @date    2024-06-05
+ *********************************************************************/
+
+#ifndef __FITKFLUIDVTKGRAPHOBJECTMODELSHAPE_H__
+#define __FITKFLUIDVTKGRAPHOBJECTMODELSHAPE_H__
+
+#include "FITKFluidVTKGraphObjectModelBase.h"
+
+#include "FITKFluidVTKGraphAdaptorAPI.h"
+
+// Forward declaration
+namespace Interface
+{
+    class FITKAbsGeoShapeAgent;
+}
+
+namespace Exchange
+{
+    /**
+     * @brief   Shape graph object 3D model for VTK graph widget.
+     * @author  ChengHaotian (yeguangbaozi@foxmail.com)
+     * @date    2024-06-05
+     */
+    class FITKFLUIDGRAPHADAPTORAPI FITKFluidVTKGraphObjectModelShape : public FITKFluidVTKGraphObjectModelBase
+    {
+        // Regist
+        FITKGraphObjectRegist(FITKFluidVTKGraphObjectModelShape, FITKFluidVTKGraphObjectModelBase);
+        FITKCLASS(Exchange, FITKFluidVTKGraphObjectModelShape);
+
+    public:
+        /**
+         * @brief   Constructor.
+         * @param   modelData: The shape model data object need to exchange
+         * @author  ChengHaotian (yeguangbaozi@foxmail.com)
+         * @date    2024-06-05
+         */
+        FITKFluidVTKGraphObjectModelShape(Interface::FITKAbsGeoShapeAgent* modelData);
+
+        /**
+         * @brief   Destructor.
+         * @author  ChengHaotian (yeguangbaozi@foxmail.com)
+         * @date    2024-06-05
+         */
+        ~FITKFluidVTKGraphObjectModelShape() = default;
+
+        /**
+         * @brief   Update all graph actors.[override]
+         * @param   forceUpdate: Force update[default]
+         * @author  ChengHaotian (yeguangbaozi@foxmail.com)
+         * @date    2024-07-24
+         */
+        void update(bool forceUpdate = false) override;
+
+    };
+}   // namespace Exchange
+
+#endif // __FITKFLUIDVTKGRAPHOBJECTMODELSHAPE_H__
